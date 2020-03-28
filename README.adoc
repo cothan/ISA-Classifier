@@ -1,0 +1,43 @@
+# binary-samples
+
+|===
+| Arch | ?-bit | 32-bit | 64-bit | Little Endian | Big Endian 
+| alpha | | {c} |   |    | 
+| arc       | | {c} |   |  {c}  | 
+| arm | | {c} | {c} | {c} | {c}
+| avr | 8 |   |    |  |
+| m68k |  | {c}  |    |  | {c}
+| mips |  | {c}  | {c}   |  | {c}
+| mipsel | | {c} | {c} | {c} |
+| msp430 | 16 |   |    | |
+| nios2 |  | {c}  |    | {c} |
+| powerpc |  |  {c} | {c}   | {c} | {c}
+| riscv |  | {c}  | {c}   | {c} |
+| s390 |  | {c}  | {c}   | | {c}
+| sh |  | {c}  |    | {c} |
+| sparc |    | {c}  |  {c}  | | {c}
+| x86_64 |   |  {c} | {c}   | | {c}
+| xtensa |  | {c}  |    | {c} |
+|=== 
+
+
+Sample coreutils on multiple platforms
+
+- xtensa-fsf-linux-uclibc-gcc
+- sparc-unknown-linux-gnu
+- sparc64-multilib-linux-gnu
+- sh-multilib-linux-gnu
+- s390-ibm-linux-gnu
+- s390x-ibm-linux-gnu
+- riscv64-unknown-linux-gnu
+- powerpc-unknown-linux-gnu
+- powerpc64-unknown-linux-gnu
+- powerpc64le-unknown-linux-gnu
+- nios2-altera-linux-gnu
+- mips-unknown-linux-uclibc
+- mipsel-unknown-linux-gnu
+- mips64el-multilib-linux-uclibc
+- armv8-rpi3-linux-gnueabihf
+- aarch64-rpi3-linux-gnu
+- alphaev56-unknown-linux-gnu
+- alphaev67-unknown-linux-gnu
