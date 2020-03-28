@@ -1,4 +1,124 @@
-# binary-samples
+:c: &#10003;
+
+## Notes 
+
+- Add radare2 script here 
+- Generate avr and m68k binaries 
+- TODO: Training
+
+
+### Build Machine 
+
+45.8 hours, 8 cores - Intel i7-870
+
+----
+$ uname -a 
+Linux euclid 4.15.0-76-generic #86-Ubuntu SMP Fri Jan 17 17:24:28 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+$ lsb_release -a 
+Distributor ID:	Ubuntu
+Description:	Ubuntu 18.04.4 LTS
+Release:	18.04
+Codename:	bionic
+----
+
+Success `crosstool-ng build.all` list:
+
+  - aarch64-rpi3-linux-gnu
+  - aarch64-unknown-linux-android
+  - aarch64-unknown-linux-gnu
+  - aarch64-unknown-linux-uclibc
+  - alphaev56-unknown-linux-gnu
+  - alphaev67-unknown-linux-gnu
+  - arc-arc700-linux-uclibc
+  - arc-multilib-elf32
+  - arc-multilib-linux-uclibc
+  - arm-bare_newlib_cortex_m3_nommu-eabi
+  - arm-cortex_a15-linux-gnueabihf
+  - arm-cortexa5-linux-uclibcgnueabihf
+  - arm-cortex_a8-linux-gnueabi
+  - arm-cortexa9_neon-linux-gnueabihf
+  - armeb-unknown-eabi
+  - armeb-unknown-linux-gnueabi
+  - armeb-unknown-linux-uclibcgnueabi
+  - arm-multilib-linux-uclibcgnueabi
+  - arm-nano-eabi
+  - arm-unknown-eabi
+  - arm-unknown-linux-gnueabi
+  - arm-unknown-linux-musleabi
+  - arm-unknown-linux-uclibcgnueabi
+  - arm-unknown-linux-uclibcgnueabihf
+  - armv6-nommu-linux-uclibcgnueabi
+  - armv6-rpi-linux-gnueabi
+  - armv7-rpi2-linux-gnueabihf
+  - armv8-rpi3-linux-gnueabihf
+  - avr
+  - i586-geode-linux-uclibc
+  - i686-centos6-linux-gnu
+  - i686-centos7-linux-gnu
+  - i686-nptl-linux-gnu
+  - i686-ubuntu12.04-linux-gnu
+  - i686-ubuntu14.04-linux-gnu
+  - i686-ubuntu16.04-linux-gnu
+  - i686-w64-mingw32
+  - i686-w64-mingw32,nios2-spico-elf
+  - m68k-unknown-elf
+  - m68k-unknown-uclinux-uclibc
+  - mips64el-multilib-linux-uclibc
+  - mips-ar2315-linux-gnu
+  - mipsel-multilib-linux-gnu
+  - mipsel-sde-elf
+  - mipsel-unknown-linux-gnu
+  - mips-malta-linux-gnu
+  - mips-unknown-elf
+  - mips-unknown-linux-uclibc
+  - moxiebox
+  - moxie-unknown-elf
+  - msp430-unknown-elf
+  - nios2-altera-linux-gnu
+  - nios2-unknown-elf
+  - powerpc-405-linux-gnu
+  - powerpc64le-unknown-linux-gnu
+  - powerpc64-multilib-linux-gnu
+  - powerpc64-unknown-linux-gnu
+  - powerpc-8540-linux-gnu
+  - powerpc-860-linux-gnu
+  - powerpc-e300c3-linux-gnu
+  - powerpc-e500v2-linux-gnuspe
+  - powerpc-unknown-linux-gnu
+  - powerpc-unknown-linux-uclibc
+  - powerpc-unknown-linux-uclibc,m68k-unknown-uclinux-uclibc
+  - powerpc-unknown_nofpu-linux-gnu
+  - riscv32-hifive1-elf
+  - riscv32-unknown-elf
+  - riscv64-unknown-elf
+  - riscv64-unknown-linux-gnu
+  - s390-ibm-linux-gnu
+  - s390x-ibm-linux-gnu
+  - sh-multilib-linux-gnu
+  - sh-multilib-linux-uclibc
+  - sh-unknown-elf
+  - sparc64-multilib-linux-gnu
+  - sparc-leon-linux-uclibc
+  - sparc-unknown-linux-gnu
+  - x86_64-centos6-linux-gnu
+  - x86_64-centos7-linux-gnu
+  - x86_64-multilib-linux-gnu
+  - x86_64-multilib-linux-musl
+  - x86_64-multilib-linux-uclibc
+  - x86_64-multilib-linux-uclibc,moxie-unknown-moxiebox
+  - x86_64-multilib-linux-uclibc,powerpc-unknown-elf
+  - x86_64-ubuntu12.04-linux-gnu
+  - x86_64-ubuntu14.04-linux-gnu
+  - x86_64-ubuntu16.04-linux-gnu
+  - x86_64-unknown-linux-gnu
+  - x86_64-unknown-linux-uclibc
+  - x86_64-w64-mingw32
+  - x86_64-w64-mingw32,arm-cortexa9_neon-linux-gnueabihf
+  - x86_64-w64-mingw32,x86_64-pc-linux-gnu
+  - xtensa-fsf-elf
+  - xtensa-fsf-linux-uclibc
+
+Separate by architectures: 
 
 |===
 | Arch | ?-bit | 32-bit | 64-bit | Little Endian | Big Endian 
@@ -21,7 +141,48 @@
 |=== 
 
 
-Sample coreutils on multiple platforms
+## Training scope
+
+avr, alphaev56, arm, m68k, mips, mipsel, powerpc, s390, sh4, sparc, x86_64, and xtensa.
+
+- alphaev56-unknown-linux-gnu
+- arc-multilib-elf
+- aarch64-rpi3-linux-gnu (arm 64-bit little endian)
+- armv8-rpi3-linux-gnueabihf (arm 32-bit little endian)
+- avr 
+- m68k-unknown-elf
+- mips64el-multilib-linux-uclibc (mips little endian 64-bit)
+- mipsel-multilib-linux-gnu (mips little endian 32-bit)
+- mips-unknown-elf (mips big endian 32-bit)
+- msp430-unknown-elf 
+- nios2-unknown-elf 
+- powerpc64le-unknown-linux-gnu (little endian 64-bit )
+- powerpc64-multilib-linux-gnu (big endian 64-bit)
+- powerpc-unknown-linux-gnu 
+- riscv32-unknown-elf (32-bit riscv)
+- riscv64-unknown-elf (64-bit riscv)
+- s390-ibm-linux-gnu (32-bit)
+- s390x-ibm-linux-gnu (64-bit)
+- sh-unknown-elf
+- sparc-unknown-linux-gnu (32-bit)
+- sparc64-multilib-linux-gnu (64-bit)
+- x86_64-multilib-linux-gnu
+- xtensa-fsf-linux-uclibc-gcc
+
+## Automate compiling 
+
+Example of success:
+
+----
+export PATH=$PATH:/home/dnguye69/x-tools/aarch64-rpi3-linux-gnu/bin
+./configure CC=aarch64-rpi3-linux-gnu-gcc --host=aarch64-rpi3-linux-gnu 
+-- turn off error, delete line 4415
+make -j 8 
+cd src/ 
+find . -maxdepth 1 -type f -exec test -x {} \; -exec cp {} /tmp/binary-samples/sparc \;
+----
+
+## Sample coreutils on multiple platforms
 
 - xtensa-fsf-linux-uclibc-gcc
 - sparc-unknown-linux-gnu
