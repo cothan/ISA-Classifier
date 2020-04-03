@@ -18,4 +18,4 @@ mkdir -p /tmp/binary-samples/$2
 echo "==============================7"
 find . -maxdepth 1 -type f -exec test -x {} \; -exec cp {} /tmp/binary-samples/$2 \;
 echo "==============================8"
-echo "- $1" >> /tmp/binary-samples/README.md
+echo "- $1" >> /tmp/binary-samples/README.adoc
