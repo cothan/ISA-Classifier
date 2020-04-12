@@ -136,7 +136,7 @@ Separate by architectures:
 | s390 |  | {c}  | {c}   | | {c}
 | sh |  | {c}  |    | {c} |
 | sparc |    | {c}  |  {c}  | | {c}
-| x86_64 |   |  {c} | {c}   | | {c}
+| x86_64 |   |  {c} | {c}  | {c} | 
 | xtensa |  | {c}  |    | {c} |
 |=== 
 
