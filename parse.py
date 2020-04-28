@@ -50,9 +50,7 @@ def listfile(dir):
     return glob.glob(dir)
 
 def main():
-    archs = ['aarch64-rp3','alphaev56','alphaev67','armv8-rp3','avr','mips','mips64el','mipsel','nios2','powerpc','powerpc64','powerpc64le','riscv64','s390','s390x-64',]
-    archs = ['sh','sparc','sparc64','x86_64-ubuntu18.04-linux-gnu','x86_64-ubuntu18.04-linux-gnu-static','xtensa']
-    archs = ['xtensa']
+    archs = ['aarch64-rp3','alphaev56','alphaev67','armv8-rp3','avr','mips','mips64el','mipsel','nios2','powerpc','powerpc64','powerpc64le','riscv64','s390','s390x-64', 'sh','sparc','sparc64','x86_64-ubuntu18.04-linux-gnu','x86_64-ubuntu18.04-linux-gnu-static','xtensa']
     for arch in tqdm(archs):
         print("[{}] ....".format(arch))
         files = listfile(arch + '/*')
