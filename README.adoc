@@ -2,9 +2,9 @@
 
 ## Notes 
 
-- Add radare2 script here 
-- Generate avr and m68k binaries 
-- TODO: Training
+- Add radare2 script here -- Done 
+- Generate avr and m68k binaries -- No big source code 
+- TODO: Training -- On-going
 
 
 ### Build Machine 
