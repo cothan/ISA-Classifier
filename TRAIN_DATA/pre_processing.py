@@ -8,7 +8,8 @@ from sklearn.model_selection import train_test_split
 from keras.utils import to_categorical
 
 
-SIZE = 16
+SIZE = 128
+CHUNK = 8
 
 archlist = ['aarch64-rp3',
             'alphaev56',
@@ -38,7 +39,7 @@ def my_padding_process(arch):
         data = f.read().strip()
         data = data.replace("{} ".format(arch), '')
         data = data.split('\n')
-        for d in data[:10]:
+        for d in data:
             d = d.split(" ")
             for i in range(0, len(d), SIZE):
                 pad_i = d[i: i + SIZE]
@@ -47,16 +48,47 @@ def my_padding_process(arch):
                     pad_i = pad_i + ['00']*(SIZE - len(pad_i))
                 assert(len(pad_i) == SIZE)
                 # print(pad_i)
-                space_i = ''.join(pad_i)
+                space_i = ' '.join(pad_i)
                 # print(space_i)
                 # space_i = one_hot(space_i, n=2**16, split=' ')
                 result.append(space_i)
         return result
 
+
+def text_process(d):
+    pad_i = ''
+    for i in range(0, len(d), CHUNK):
+        pad_i += d[i: i + CHUNK]
+        pad_i += ' '
+    pad_i = pad_i.strip()
+    return pad_i
+
+def sequence_process(arch):
+    result = []
+    with open("{}.train".format(arch), 'r') as f:
+        data = f.read().strip()
+        data = data.replace("{} ".format(arch), '')
+        data = data.split('\n')
+        for d in data:
+            d = d.replace(' ', '')
+            for i in range(0, len(d), SIZE):
+                pad_i = text_process(d[i:i + SIZE])
+                result.append(pad_i)
+    return result
+
+
 def generate_data_flatten():
     X_train, Y_train = [], []
     for arch in archs:
         temp = my_padding_process(arch)
+        X_train += temp
+        Y_train += ['{}'.format(arch)]*len(temp)
+    return X_train, Y_train
+
+def generate_fix_sequence():
+    X_train, Y_train = [], []
+    for arch in archs:
+        temp = sequence_process(arch)
         X_train += temp
         Y_train += ['{}'.format(arch)]*len(temp)
     return X_train, Y_train

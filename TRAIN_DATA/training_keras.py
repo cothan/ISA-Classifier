@@ -14,6 +14,10 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Embedding, LSTM, Bidirectional
 
 
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+
 max_features = 20
 seq_length = 8
 batch_size = 32
@@ -104,22 +108,10 @@ print(train_data[:3])
 print(train_label[:3])
 # train_label = to_categorical(train_label, num_classes=None)
 
-"""
-x_train, x_test, y_train, y_test = train_test_split(train_data, train_label, test_size=0.2, random_state=42) 
+x_train, x_test, y_train, y_test = train_test_split(train_data, train_label, test_size=0.2) 
 
+print('Train size: {} {}'.format(len(x_train), len(y_train)))
+
+print('Test size: {} {}'.format(len(x_test), len(y_test)))
 
 model = Sequential()
-model.add(Embedding(input_dim=max_features, 128, input_length=maxlen))
-model.add(Bidirectional(LSTM(64)))
-model.add(Dropout(0.5))
-model.add(Dense(1, activation='sigmoid'))
-
-# try using different optimizers and different optimizer configs
-model.compile('adam', 'binary_crossentropy', metrics=['accuracy'])
-
-print('Train...')
-model.fit(x_train, y_train,
-          batch_size=batch_size,
-          epochs=4,
-          validation_data=[x_test, y_test])
-"""
