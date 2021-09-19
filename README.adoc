@@ -11,6 +11,10 @@
 My DNN classifier can classify ISA by 90%. 
 Please see PDF slide report in github repo.
 
+https://github.com/cothan/binary-samples/blob/master/Toward%20classified%20Instruction%20Set%20Architecture%20using%20Neural%20Network.pdf[Report PDF]
+
+
+
 
 ### Build Machine 
 
