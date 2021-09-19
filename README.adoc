@@ -4,7 +4,12 @@
 
 - Add radare2 script here -- Done 
 - Generate avr and m68k binaries -- No big source code 
-- TODO: Training -- On-going
+- Training is completed. 
+
+## Results
+
+My DNN classifier can classify ISA by 90%. 
+Please see PDF slide report in github repo.
 
 
 ### Build Machine 
